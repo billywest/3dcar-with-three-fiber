@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
+import { LinearEncoding, RepeatWrapping, TextureLoader } from "three";
 import { MeshReflectorMaterial } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
-import { LinearEncoding, RepeatWrapping, TextureLoader } from "three";
 import {
   terrainNormal,
   terrainRoughness,
@@ -18,6 +18,7 @@ export const Ground = () => {
       t.wrapS = RepeatWrapping;
       t.wrapT = RepeatWrapping;
       t.repeat.set(5, 5);
+      t.offset.set(0, 0);
     });
 
     normal.encoding = LinearEncoding;
@@ -34,7 +35,7 @@ export const Ground = () => {
         dithering={true}
         color={[0.015, 0.015, 0.015]}
         roughness={0.7}
-        blur={[100, 100]}
+        blur={[800, 200]}
         mixBlur={30}
         mixStrength={80}
         mixContrast={1}
